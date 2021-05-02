@@ -299,7 +299,7 @@ func main() {
 	pf(fmt.Sprintf("Skipped not remote ones: %d", notRemote))
 	pf(fmt.Sprintf("Duplicated: %d", seenBeforeCount))
 	tmpl, _ := template.ParseFiles("templates/index.html")
-	f, err := os.Create("index2.html")
+	f, err := os.Create("index.html")
 	if err != nil {
 		// handle error
 	}
