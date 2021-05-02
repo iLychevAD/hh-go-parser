@@ -20,6 +20,6 @@ jobs:
       run: go get -d
 
     - name: Run
-      run: go run hh.go
+      run: git clone https://github.com/iLychevAD/iLychevAD.github.io.git  #go run hh.go
     - name: Debug
       run: pwd; ls -lah; git status
