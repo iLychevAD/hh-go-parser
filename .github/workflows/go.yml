@@ -20,6 +20,6 @@ jobs:
       run: go get -d
 
     - name: Run
-      run: git clone https://github.com/iLychevAD/iLychevAD.github.io.git  #go run hh.go
+      run: git clone https://github.com/iLychevAD/iLychevAD.github.io.git pages && cd pages && git status && touch test && got add test && got commit -m 'Test' && git push origin #go run hh.go
     - name: Debug
       run: pwd; ls -lah; git status
