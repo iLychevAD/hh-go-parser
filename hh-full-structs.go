@@ -1,4 +1,4 @@
-
+package main
 // The struct is generated from HH's response using https://mholt.github.io/json-to-go/
 type Vacancy struct {
 	Details                *VacancyDetails // custom field, not from HH respond
