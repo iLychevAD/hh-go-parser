@@ -17,10 +17,10 @@ jobs:
         go-version: 1.15
 
     - name: Clean
-      run: go get -d && gh --help
+      run: go get -d # && gh --help
 
     - name: Run
-      run: echo hh > index.html
+      run: go run hh.go
     - name: Push to Pages
       env:
         PAGES_REPO_DEPLOY_KEY: ${{ secrets.PAGES_REPO_DEPLOY_KEY }}
