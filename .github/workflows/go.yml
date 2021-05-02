@@ -16,10 +16,10 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Build
-      run: go build -v hh.go
+    - name: Clean
+      run: go mod vendor
 
-    - name: Test
+    - name: Run
       run: go run hh.go
     - name: Debug
       run: pwd; ls -lah; git status
