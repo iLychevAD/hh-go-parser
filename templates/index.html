@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>{{ .Title}}</title>
+    </head>
+    <body>
+        <div class="wrapper container">
+        <h1>{{ .Title}}</h1>
+        <ol>
+            {{range $index, $item := .Items}}
+                <li>
+                    <b><a  target=_blank href="https://hh.ru/vacancy/{{ .ID }}">{{ .Name }}</a></b> ({{ .Employer.Name }}/{{ .Area.Name }}) <b>{{ .NormalizedSalary }}</b>
+                    <details>
+                    <summary style="background-color: rgb(233, 227, 227);">{{ .Details.Excerpt }}</summary>
+                    <p><div style="background-color: rgb(206, 206, 108);">{{ .Details.Description }}</div></p>
+                   </details>
+                </li>
+                <br>
+            {{end}}
+            </ol>
+        </div>
+    </body>
+</html>
