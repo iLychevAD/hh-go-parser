@@ -17,9 +17,9 @@ jobs:
         go-version: 1.15
 
     - name: Clean
-      run: go get -d
+      run: go get -d && gh --help
 
     - name: Run
-      run: git clone https://github.com/iLychevAD/iLychevAD.github.io.git pages && cd pages && git status && touch test && git add test && git config user.email "github@actions.com" && git config user.name "GitHub Actions" && git commit -m 'Test' && git push origin #go run hh.go
+      run: git clone git@github.com:iLychevAD/iLychevAD.github.io.git pages && cd pages && git status && touch test && git add test && git config user.email "github@actions.com" && git config user.name "GitHub Actions" && git commit -m 'Test' && git push origin #go run hh.go
     - name: Debug
       run: pwd; ls -lah; git status
