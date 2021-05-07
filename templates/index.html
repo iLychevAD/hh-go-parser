@@ -8,13 +8,13 @@
     <body>
         <div class="wrapper container">
         <h1>{{ .Title}}</h1>
-        <ol>
+        <ol name="vacancies">
             {{range $index, $item := .Items}}
-                <li>
+                <li name="vacancy">
                     <b><a  target=_blank href="https://hh.ru/vacancy/{{ .ID }}">{{ .Name }}</a></b> ("{{ .Employer.Name }}", {{ .Area.Name }}) <b>{{ .NormalizedSalary }}</b> [ {{ slice .PublishedAt 0 10 }} ]
                     <details>
                     <summary style="background-color: rgb(233, 227, 227);">{{ .Details.Excerpt }}</summary>
-                    <p><div name="details" style="background-color: rgb(206, 206, 108);">{{ .Details.Description }}</div></p>
+                    <p><div name="description" style="background-color: rgb(206, 206, 108);">{{ .Details.Description }}</div></p>
                    </details>
                 </li>
                 <br>
