@@ -12,14 +12,15 @@ import (
 	//"strings"
 	"text/template"
 	"crypto/md5"
+	"sort"
 	//"errors"
 )
 
 const HH_SEARCH_KEYWORD = "devops"
 const VACANCIES_MAX_TOTAL = 1999 // HH.RU API allows up to 2000 vacancies only
 const VACANCIES_PER_PAGE = 99    // ...again, this is upper limit posed by HH.RU
-//const PAGES_COUNT = 2            
-var PAGES_COUNT = VACANCIES_MAX_TOTAL / VACANCIES_PER_PAGE
+const PAGES_COUNT = 2            
+//var PAGES_COUNT = VACANCIES_MAX_TOTAL / VACANCIES_PER_PAGE
 
 const numDownloaders = 20
 
@@ -294,6 +295,9 @@ func main() {
 			notRemote++
 		}
 	}
+	sort.Slice(remoteOnes, func(i, j int) bool {
+		return remoteOnes[i].PublishedAt > remoteOnes[j].PublishedAt
+	})
 	data := RemoteVacancies{Title: "vacancies", Items: remoteOnes}
 	//data.Items = remoteOnes
 	pf(fmt.Sprintf("Skipped not remote ones: %d", notRemote))
