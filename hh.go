@@ -16,7 +16,7 @@ import (
 	//"errors"
 )
 
-const HH_SEARCH_KEYWORD = "devops"
+const HH_SEARCH_KEYWORD = "devops+architect"
 const VACANCIES_MAX_TOTAL = 1999 // HH.RU API allows up to 2000 vacancies only
 const VACANCIES_PER_PAGE = 99    // ...again, this is upper limit posed by HH.RU
 //const PAGES_COUNT = 2            
