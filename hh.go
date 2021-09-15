@@ -28,7 +28,7 @@ var VACANCIES_AGE = os.Getenv("INPUT_VACANCY_AGE")
 var VACANCIES_PAGE_BASE_URL = fmt.Sprintf(
 	"https://api.hh.ru/vacancies?text=%s" +
 	"&per_page=%d" +
-	"&period=%d" +
+	"&period=%s" +
 	"&vacancy_search_order=publication_date&page=",
 	HH_SEARCH_TEXT,
 	VACANCIES_PER_PAGE,
