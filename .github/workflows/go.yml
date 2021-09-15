@@ -30,4 +30,16 @@ jobs:
     - name: Push to Pages
       env:
         PAGES_REPO_DEPLOY_KEY: ${{ secrets.PAGES_REPO_DEPLOY_KEY }}
-      run: echo "${PAGES_REPO_DEPLOY_KEY}" > .key && chmod 0700 .key && GIT_SSH_COMMAND="ssh -i .key" git clone git@github.com:iLychevAD/iLychevAD.github.io.git pages && cd pages && git checkout hh || git checkout -b hh && mkdir -p hh && cp ../index.html hh/index.html && git add hh/index.html && git config user.email "github-actions@example.com" && git config user.name "GitHub Actions" && git commit -m "`date`" &&  GIT_SSH_COMMAND="ssh -i ../.key"  git push -u origin hh
+      run: |
+        echo "${PAGES_REPO_DEPLOY_KEY}" > .key && \
+        chmod 0700 .key && \
+        GIT_SSH_COMMAND="ssh -i .key" git clone git@github.com:iLychevAD/iLychevAD.github.io.git pages && \
+        cd pages && \
+        git checkout hh || git checkout -b hh && \
+        mkdir -p hh && \
+        cp ../index.html hh/index.html && \
+        git add hh/index.html && \
+        git config user.email "github-actions@example.com" && \
+        git config user.name "GitHub Actions" && \
+        git commit -m "`date`" && \
+        GIT_SSH_COMMAND="ssh -i ../.key" git push -u origin hh
