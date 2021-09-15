@@ -30,13 +30,14 @@ jobs:
       run: go get -d # && gh --help
 
     - name: Run
-      run: go run hh.go
+      env:
+        INPUT_HH_SEARCH_TEXT: ${{ inputs.hh_search_text }}
+        INPUT_VACANCY_AGE: ${{ inputs.vacancy_age }}
+      run: printenv | grep INPUT_ && go run hh.go
 
     - name: Push to Pages
       env:
         PAGES_REPO_DEPLOY_KEY: ${{ secrets.PAGES_REPO_DEPLOY_KEY }}
-        INPUT_HH_SEARCH_TEXT: ${{ inputs.hh_search_text }}
-        INPUT_VACANCY_AGE: ${{ inputs.vacancy_age }}
       run: |
         printenv | grep INPUT_ && \
         echo "${PAGES_REPO_DEPLOY_KEY}" > .key && \
