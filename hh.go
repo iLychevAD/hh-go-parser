@@ -98,6 +98,7 @@ func pf(s string) {
 }
 
 func getAllVacanciesList(done <-chan struct{}) (chan Vacancy) {
+	pf(VACANCIES_PAGE_BASE_URL)
 	allVacancies := make(chan Vacancy)
 	go func() {
 		defer close(allVacancies)
