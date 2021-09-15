@@ -16,7 +16,7 @@ import (
 	//"errors"
 )
 
-const HH_SEARCH_KEYWORD = "devops+architect"
+var HH_SEARCH_TEXT = os.Getenv("INPUT_HH_SEARCH_TEXT")
 const VACANCIES_MAX_TOTAL = 1999 // HH.RU API allows up to 2000 vacancies only
 const VACANCIES_PER_PAGE = 99    // ...again, this is upper limit posed by HH.RU
 //const PAGES_COUNT = 2            
@@ -24,13 +24,13 @@ var PAGES_COUNT = VACANCIES_MAX_TOTAL / VACANCIES_PER_PAGE
 
 const numDownloaders = 100 //20
 
-const VACANCIES_AGE = 30
+var VACANCIES_AGE = os.Getenv("INPUT_VACANCY_AGE")
 var VACANCIES_PAGE_BASE_URL = fmt.Sprintf(
 	"https://api.hh.ru/vacancies?text=%s" +
 	"&per_page=%d" +
 	"&period=%d" +
 	"&vacancy_search_order=publication_date&page=",
-	HH_SEARCH_KEYWORD,
+	HH_SEARCH_TEXT,
 	VACANCIES_PER_PAGE,
 	VACANCIES_AGE)
 

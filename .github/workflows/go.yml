@@ -5,10 +5,14 @@ on:
 #    branches: [ master ]
    workflow_dispatch:
      inputs:
-       vacancyAge:
-         description: "vacancyAge (not used)"
-         required: false
+       vacancy_age:
+         description: "vacancy age"
+         required: true
          default: "30"
+       hh_search_text:
+         description: "HH search string"
+         required: true
+         default: "devops"
 
 jobs:
 
