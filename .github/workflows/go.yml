@@ -29,11 +29,11 @@ jobs:
     - name: Clean
       run: go get -d # && gh --help
 
-    - name: Run
-      run: go run hh.go
-
     - name: Check env vars
       run: printenv | grep INPUT_
+
+    - name: Run
+      run: go run hh.go
 
     - name: Push to Pages
       env:
