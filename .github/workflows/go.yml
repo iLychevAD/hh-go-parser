@@ -31,6 +31,10 @@ jobs:
 
     - name: Run
       run: go run hh.go
+
+    - name: Check env vars
+      run: printenv | grep INPUT_
+
     - name: Push to Pages
       env:
         PAGES_REPO_DEPLOY_KEY: ${{ secrets.PAGES_REPO_DEPLOY_KEY }}
